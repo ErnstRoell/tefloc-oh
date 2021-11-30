@@ -5,8 +5,8 @@ env:
   registry: docker.pkg.github.com
   repository: hattan/openhack-devops-team-gh/api-poi
   docker_path: apis/poi/web
-  staging_url: https://openhackkz15cji1poi-staging.azurewebsites.net
-  prod_url: https://openhackkz15cji1poi.azurewebsites.net
+  staging_url: https://openhackkz15cji1poi-staging.azurewebsites.net/
+  prod_url: https://openhackkz15cji1poi.azurewebsites.net/
   resource_group: openhackkz15cji1rg
   webapp_name: openhackkz15cji1poi
   build_name: POI
