@@ -16,6 +16,8 @@ urlFragment: openhack-devops-team
 
 The DevOps open hack event is designed to foster learning via implementing DevOps practices with a series of challenges.
 
+# TEST
+
 ## Architecture
 
 The application used for this event is a heavily modified and recreated version of the original [My Driving application](https://github.com/Azure-Samples/MyDriving).
