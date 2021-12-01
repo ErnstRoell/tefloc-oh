@@ -13,12 +13,12 @@ env:
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
     paths: 
       - apis/userprofile/**  
       - .github/workflows/userprofile.yml
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
     paths: 
       - apis/userprofile/**
       - .github/workflows/userprofile.yml
