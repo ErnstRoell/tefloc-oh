@@ -1,5 +1,6 @@
 package tripsgo
 
+//do
 import (
 	"testing"
 	"time"
