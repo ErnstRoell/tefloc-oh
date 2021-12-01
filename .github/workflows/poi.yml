@@ -54,7 +54,7 @@ jobs:
       run: dotnet test --no-restore --verbosity normal apis/poi/tests/UnitTests  /p:CollectCoverage=true /p:CoverletOutput=lcov/ /p:CoverletOutputFormat=lcov
       
     - name: Coveralls
-      uses: coverallsapp/github-action@main
+      uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         path-to-lcov: apis/poi/tests/UnitTests/lcov/coverage.info
@@ -74,7 +74,7 @@ jobs:
             body: body
           });
   docker_build_and_push:
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     needs: build_and_test
     steps:     
