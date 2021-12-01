@@ -7,7 +7,7 @@ env:
   repository: devopsoh/api-poi
 # Using Docker Package
 #  registry: docker.pkg.github.com
-#  repository: hattan/openhack-devops-team-gh/api-poi
+#  repository: pascalvanderheiden/trip-viewer/api-poi
   docker_path: apis/poi/web
   staging_url: https://openhackkz15cji1poi-staging.azurewebsites.net/
   prod_url: https://openhackkz15cji1poi.azurewebsites.net/
@@ -54,7 +54,7 @@ jobs:
       run: dotnet test --no-restore --verbosity normal apis/poi/tests/UnitTests  /p:CollectCoverage=true /p:CoverletOutput=lcov/ /p:CoverletOutputFormat=lcov
       
     - name: Coveralls
-      uses: coverallsapp/github-action@master
+      uses: coverallsapp/github-action@main
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         path-to-lcov: apis/poi/tests/UnitTests/lcov/coverage.info
@@ -83,8 +83,8 @@ jobs:
     - name: Docker login     
       run: docker login $registry -u ${{ secrets.ACR_USER }} -p ${{ secrets.ACR_KEY }}
     # Using Github Packages
-#    - name: Docker login     
-#      run: docker login $registry -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.GITHUB_TOKEN }}
+    #- name: Docker login     
+    #  run: docker login $registry -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.GITHUB_TOKEN }}
     - name: Docker build
       run: docker build -t $registry/$repository:${{github.run_number}} --build-arg build_version=${{github.run_number}} $docker_path
 
