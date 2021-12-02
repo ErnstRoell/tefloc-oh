@@ -211,7 +211,7 @@ jobs:
       run: docker build -t poivalidate apis/poi/webvalidate
 
     - name: Web Validate 
-      run: ./run.sh poivalidate $prod_url   
+      run: ./run.sh poivalidate ${{ env.prod_url }}   
 
     - uses: actions/github-script@0.9.0
       if: failure()
