@@ -83,7 +83,7 @@ jobs:
     - name: Login to ACR
       uses: docker/login-action@v1
       with:
-        registry: $registry
+        registry: ${{ env.registry }}
         username: ${{ secrets.AZURE_CLIENT_ID }}
         password: ${{ secrets.AZURE_CLIENT_SECRET }}
     
@@ -94,10 +94,10 @@ jobs:
     #- name: Docker login     
     #  run: docker login $registry -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.GITHUB_TOKEN }}
     - name: Docker build
-      run: docker build -t $registry/$repository:${{github.run_number}} --build-arg build_version=${{github.run_number}} $docker_path
+      run: docker build -t ${{ env.registry }}/${{ env.repository }}:${{github.run_number}} --build-arg build_version=${{github.run_number}} $docker_path
 
     - name: Docker Push
-      run: docker push $registry/$repository:${{github.run_number}}  
+      run: docker push ${{ env.registry }}/${{ env.repository }}:${{github.run_number}}  
 
     - uses: actions/github-script@0.9.0
       if: failure()
